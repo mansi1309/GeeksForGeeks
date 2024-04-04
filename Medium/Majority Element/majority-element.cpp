@@ -17,43 +17,29 @@ class Solution{
     {
         
         // your code here
+         if(size==1)
+        return a[0];
         
-        // by moore voting algorithm
-        int cnt=0;
-        int num;
-        for(int i=0;i<size;i++)
-        {
-            if(cnt==0)
-            {
-                num=a[i];
-                cnt=1;
-            }
-            else if(num==a[i])
-            {
+        sort(a,a+size);
+        
+        int cnt=1;
+        int element=a[0];
+        int ans=-1;
+        
+        for(int i=1;i<size;i++){
+            if(element==a[i]){
                 cnt++;
+                if(cnt>size/2){
+                    ans=a[i];
+                }
             }
             else{
-                cnt--;
+                element=a[i];
+                cnt=1;
             }
         }
-        if(cnt==0)
-        {
-            return -1;
-        }
-        else{
-        int cnt1=0;
-        for(int i=0;i<size;i++)
-        {
-            if(num==a[i])
-            {
-                cnt1++;
-            }
-        }
-       if(cnt1>(size/2))
-       return num;
-       else
-       return -1;
-        }
+        return ans;
+        
     }
 };
 
