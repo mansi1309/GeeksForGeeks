@@ -10,13 +10,11 @@ class Solution {
   public:
     long long sumOfSeries(long long n) {
         // code here
-        long long ans;
-        long long res=0;
-        for(int i=1;i<=n;i++){
-            ans=pow(i,3);
-            res=res+ans;
+        if(n==0)
+        return 0;
+        else{
+            return n*n*n+sumOfSeries(n-1); 
         }
-        return res;
     }
 };
 
