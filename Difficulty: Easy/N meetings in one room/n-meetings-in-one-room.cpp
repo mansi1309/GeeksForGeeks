@@ -15,17 +15,19 @@ class Solution
         for(int i=0;i<n;i++){
             v.push_back({end[i],start[i]});
         }
+        int cnt=1;
+        
+        // sort according to ending time
         sort(v.begin(),v.end());
-        int prev_end=INT_MIN;
-        int cnt=0;
-        for(int i=0;i<n;i++){
-            int curr_end=v[i].first;
-            int curr_start=v[i].second;
-            if(curr_start<=prev_end){
-                continue;
+        int endTime=v[0].first;
+        for(int i=1;i<n;i++){
+            int start_time=v[i].second;
+            // int end_time=v[i].first;
+            if(start_time>endTime){
+                cnt++;
+                 endTime=v[i].first;
             }
-            cnt++;
-            prev_end=curr_end;
+           
         }
         return cnt;
     }
