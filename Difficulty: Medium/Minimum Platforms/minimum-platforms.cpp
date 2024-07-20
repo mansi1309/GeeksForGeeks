@@ -15,21 +15,23 @@ class Solution{
     	// Your code here
     	sort(arr,arr+n);
     	sort(dep,dep+n);
-    	int plate=1,res=1,i=1,j=0;
-    	while(i<n && j<n){
-    	    if(arr[i]<=dep[j]){
-    	        plate++;
+    	
+    	int i=0;
+    	int j=0;
+    	int cnt=0;
+    	int maxCnt=0;
+    	while(i<n){
+    	    if(arr[i]<=dep[j]){ //arrival
+    	        cnt++;
     	        i++;
     	    }
-    	    else if(arr[i]>dep[j]){
-    	        plate--;
+    	    else{ // deparature
+    	        cnt--;
     	        j++;
     	    }
-    	    if(plate>res){
-    	        res=plate;
-    	    }
+    	    maxCnt=max(cnt,maxCnt);
     	}
-    	return res;
+    	return maxCnt;
     }
 };
 
