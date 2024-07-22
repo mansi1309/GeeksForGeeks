@@ -24,7 +24,7 @@ class Solution {
         if(root==NULL)
         return true;
         
-        if(root->data>=maxi || root->data<=mini){
+        if(root->data<=mini || root->data>=maxi){
             return false;
         }
         
@@ -32,7 +32,6 @@ class Solution {
     }
     bool isBST(Node* root) {
         // Your code here
-    
         return helper(root,INT_MIN,INT_MAX);
     }
 };
