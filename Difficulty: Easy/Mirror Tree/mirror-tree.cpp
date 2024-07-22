@@ -113,17 +113,12 @@ class Solution {
     void mirror(Node* node) {
         // code here
         if(node==NULL)
-        return ;
+        return;
         
-        else{
+        swap(node->left,node->right);
         mirror(node->left);
         mirror(node->right);
-        }
         
-        // swapping the children of root
-        Node* temp=node->left;
-        node->left=node->right;
-        node->right=temp;
     }
 };
 
