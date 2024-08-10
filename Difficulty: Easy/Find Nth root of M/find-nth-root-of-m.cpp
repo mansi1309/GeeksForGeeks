@@ -5,34 +5,28 @@ using namespace std;
 // } Driver Code Ends
 class Solution{
 	public:
-// 	int power(int mid,int n){
-// 	    int val=1;
-// 	    for(int i=1;i<=n;i++){
-// 	        val=val*mid;
-// 	    }
-// 	    return val;
-// 	}
 	int NthRoot(int n, int m)
 	{
 	    // Code here.
-	    int low=1;
-	    int high=m;
-	   // int mid=(low+high)/2;
-	    while(low<=high){
-	        int mid=(low+high)/2;
-	       // int ans=pow(mid,n);
-	        if(pow(mid,n)==m){
-	            return mid;
-	           // break;
-	        }
-	        if(pow(mid,n)>m){
-	            high=mid-1;
-	        }
-	        else if(pow(mid,n)<m){
-	            low=mid+1;
-	        }
-	    }
-	    return -1;
+	    int integer=-1;
+   if(m==0)return m;
+int low=1;int high=m;
+while(low<=high){
+    int mid=(low+high)/2;
+    
+    if(pow(mid,n)==m){
+    integer=mid;
+    return integer;
+    }
+    else if(pow(mid,n)>m){
+        high=mid-1;
+    }
+    else if(pow(mid,n)<m){
+        low=mid+1;
+    }
+    
+}
+return integer;
 	}  
 };
 
