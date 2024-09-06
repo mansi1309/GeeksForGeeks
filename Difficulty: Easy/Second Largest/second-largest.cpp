@@ -13,13 +13,30 @@ class Solution {
     int print2largest(vector<int> &arr) {
         // Code Here
         // o(nlogn)
-        sort(arr.begin(),arr.end());
-        set<int>st(arr.begin(),arr.end());
-        vector<int>v(st.begin(),st.end());
-        if(v.size()<2)
-        return -1;
-        else
-        return v[v.size()-2];
+        // sort(arr.begin(),arr.end());
+        // set<int>st(arr.begin(),arr.end());
+        // vector<int>v(st.begin(),st.end());
+        // if(v.size()<2)
+        // return -1;
+        // else
+        // return v[v.size()-2];
+        
+        // o(n)
+        int maxi=-1;
+        int secMaxi=maxi;
+        for(int i=0;i<arr.size();i++){
+            if(arr[i]>maxi){
+                secMaxi=maxi;
+                maxi=arr[i];
+                
+               
+            }
+            if(arr[i]>secMaxi && arr[i]!=maxi){
+                secMaxi=arr[i];
+            }
+            
+        }
+        return secMaxi;
     }
 };
 
