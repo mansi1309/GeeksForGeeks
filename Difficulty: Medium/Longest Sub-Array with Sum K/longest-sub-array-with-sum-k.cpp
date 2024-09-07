@@ -13,17 +13,18 @@ class Solution{
         int maxi=0;
         int sum=0;
         for(int i=0;i<N;i++){
-            sum+=A[i];
-            if(sum==K){
-                maxi=max(maxi,i+1);
-            }
-            // not present
-            if(mp.find(sum)==mp.end()){
-                mp[sum]=i;
-            }
-            if(mp.find(sum-K)!=mp.end()){
-                maxi=max(maxi,i-mp[sum-K]);
-            }
+           sum=sum+A[i];
+           if(sum==K){
+               maxi=max(maxi,i+1);
+           }
+        //   sum not present in map
+           if(mp.find(sum)==mp.end()){
+               mp[sum]=i;
+           }
+        //   sum-K present 
+        if(mp.find(sum-K)!=mp.end()){
+            maxi=max(maxi,i-mp[sum-K]);
+        }
         }
         return maxi;
     } 
