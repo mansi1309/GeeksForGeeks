@@ -12,18 +12,16 @@ public:
 		of occurrences of x, otherwise returns 0. */
 	int count(int arr[], int n, int x) {
 	    // code here
-	    int cnt=0;
 	    int low=0;
 	    int high=n-1;
-	    int mid=0;
+	    int cnt=0;
 	    int first=-1;
 	    int last=-1;
 	    while(low<=high){
-	        mid=low+(high-low)/2;
+	        int mid=low+(high-low)/2;
 	        if(arr[mid]==x){
 	            cnt++;
-	            first=mid;
-	            last=mid;
+	            first=mid,last=mid;
 	            while(first>0 && arr[first-1]==x){
 	                cnt++;
 	                first--;
@@ -34,11 +32,11 @@ public:
 	            }
 	            break;
 	        }
-	        if(arr[mid]>x){
-	            high=mid-1;
+	        else if(arr[mid]<x){
+	            low=mid+1;
 	        }
 	        else{
-	            low=mid+1;
+	            high=mid-1;
 	        }
 	    }
 	    return cnt;
