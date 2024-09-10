@@ -10,32 +10,15 @@ class Solution {
   public:
     int findKRotation(vector<int> &arr) {
         // Code Here
-        int cnt=0;
-        int low=0;
-        int high=arr.size()-1;
-        int ans=INT_MAX;
-        if(arr[low]<arr[high]){
-            return cnt;
-        }
-        while(low<=high){
-            int mid=low+(high-low)/2;
-            if(arr[low]<=arr[mid]){
-                if(arr[low]<ans){
-                ans=arr[low];
-                cnt=low;
-                }
-                low=mid+1;
-            }
-            else{
-                if(arr[mid]<ans){
-                    cnt=mid;
-                    ans=arr[mid];
-                }
-                
-                high=mid-1;
+        int mini=INT_MAX;
+        int k=0;
+        for(int i=0;i<arr.size();i++){
+            if(mini>arr[i]){
+                mini=arr[i];
+                k=i;
             }
         }
-        return cnt;
+        return k;
     }
 };
 
