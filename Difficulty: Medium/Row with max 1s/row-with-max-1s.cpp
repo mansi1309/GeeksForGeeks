@@ -9,8 +9,8 @@ class Solution {
   public:
     int rowWithMax1s(vector<vector<int> > &arr) {
         // code here
-        int maxi=-1;
-        int key=-1;
+        int ans=-1;
+        int maxi=INT_MIN;
         for(int i=0;i<arr.size();i++){
             int cnt=0;
             for(int j=0;j<arr[i].size();j++){
@@ -18,17 +18,12 @@ class Solution {
                     cnt++;
                 }
             }
-            if(cnt>maxi){
-                key=i;
-            }
-            if(cnt!=0){
-         maxi=max(maxi,cnt);
+            if(cnt>maxi && cnt!=0){
+                maxi=cnt;
+                ans=i;
             }
         }
-        if(maxi==-1)
-        return -1;
-        else
-        return key;
+        return ans;
     }
 };
 
