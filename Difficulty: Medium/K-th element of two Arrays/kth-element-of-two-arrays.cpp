@@ -8,12 +8,27 @@ class Solution {
   public:
     int kthElement(int k, vector<int>& arr1, vector<int>& arr2) {
         // code here
-         int ans=0,i=0,j=0;
-        while(k--){
-            if(j==arr2.size() || i!=arr1.size() && arr1[i]<=arr2[j])ans=arr1[i++];
-            else ans=arr2[j++];
+       
+        int n=arr1.size();
+        int m=arr2.size();
+         vector<int>v(n+m);
+        int i=0;
+        int j=0,x=0;
+        while(i<n && j<m){
+            if(arr1[i]<arr2[j]){
+                v[x++]=arr1[i++];
+            }
+            else{
+                v[x++]=arr2[j++];
+            }
         }
-        return ans;
+        while(i<n){
+            v[x++]=arr1[i++];
+        }
+        while(j<m){
+            v[x++]=arr2[j++];
+        }
+        return v[k-1];
     }
 };
 
