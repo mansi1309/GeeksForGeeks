@@ -43,36 +43,35 @@ struct Node
 
 class Solution {
   public:
-    Node* rev(Node* head){
-        Node* curr=head;
-        Node* prev=NULL;
-        while(curr!=NULL){
-            Node* nxt=curr->next;
-            curr->next=prev;
-            prev=curr;
-            curr=nxt;
-        }
-        return prev;
-    }
+   Node* reverseList(Node* head){
+       Node* curr=head;
+       Node* prev=NULL;
+       while(curr!=NULL){
+           Node* nxt=curr->next;
+           curr->next=prev;
+           prev=curr;
+           curr=nxt;
+       }
+       return prev;
+   }
     Node* addOne(Node* head) {
         // Your Code here
         // return head of list after adding one
-        Node* curr=rev(head);
-        int carry=1;
-        Node* temp=new Node(-1);
-        Node* ans=temp;
-        while(curr!=NULL || carry!=0){
-           int sum=carry;
-           if(curr!=NULL){
-               sum=sum+curr->data;
-               curr=curr->next;
-           }
+       head=reverseList(head);
+       int carry=1;
+       Node* curr=head;
+       Node* prev=NULL; //track 
+       while(curr!=NULL){
+           int sum=curr->data+carry;
+           curr->data=sum%10;
            carry=sum/10;
-           temp->next=new Node(sum%10);
-           temp=temp->next;
-        }
-        Node* res=rev(ans->next);
-        return res;
+           prev=curr;
+           curr=curr->next;
+       }
+       if(carry>0){
+           prev->next=new Node(carry);
+       }
+       return reverseList(head); 
     }
 };
 
