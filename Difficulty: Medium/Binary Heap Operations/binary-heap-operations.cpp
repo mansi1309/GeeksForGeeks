@@ -92,19 +92,18 @@ struct MinHeap
 int MinHeap::extractMin() 
 {
     // Your code here
-     if (heap_size <= 0)
-        return -1; // if heap is empty
-
-    if (heap_size == 1) {
+    if(heap_size<=0)
+    return -1;
+    
+    if(heap_size==1){
         heap_size--;
         return harr[0];
     }
-
-    int root = harr[0];
-    harr[0] = harr[heap_size-1];
+    
+    int root=harr[0];
+    harr[0]=harr[heap_size-1];
     heap_size--;
     MinHeapify(0);
-
     return root;
 }
 
@@ -112,27 +111,26 @@ int MinHeap::extractMin()
 void MinHeap::deleteKey(int i)
 {
     // Your code here
-    if(i>=heap_size) return;
-     decreaseKey(i, INT_MIN);
+    if(i>=heap_size)
+    return ;
+    
+    decreaseKey(i,INT_MIN);
     extractMin();
+    
 }
 
 //Function to insert a value in Heap.
 void MinHeap::insertKey(int k) 
 {
     // Your code here
-     if (heap_size == capacity) {
-        return; // Heap overflow
-    }
-
+    if(heap_size==capacity)
+    return;
+    
     heap_size++;
-    int i = heap_size - 1;
-    harr[i] = k;
-
-    // Fix the min heap property if it is violated
-    while (i != 0 && harr[parent(i)] > harr[i]) {
-        swap(harr[i], harr[parent(i)]);
-        i = parent(i);
+    harr[heap_size-1]=k;
+    for(int i=heap_size-1;i!=0 && harr[parent(i)]>harr[i];){
+        swap(harr[parent(i)],harr[i]);
+        i=parent(i);
     }
 }
 
