@@ -10,20 +10,20 @@ class Solution {
     // be performed in a meeting room.
     int maxMeetings(int n, int start[], int end[]) {
         // Your code here
-        vector<pair<int,int>>ans;
-        
+        vector<pair<int,int>>v;
         for(int i=0;i<n;i++){
-            ans.push_back({end[i],start[i]});
+            v.push_back({end[i],start[i]});
         }
-        
-        sort(ans.begin(),ans.end());
+        sort(v.begin(),v.end());
         int cnt=1;
-        int last=ans[0].first;
+        int last=v[0].first;
+        
         for(int i=1;i<n;i++){
-            if(last<ans[i].second){
-                last=ans[i].first;
+            if(v[i].second>last){
                 cnt++;
+                last=v[i].first;
             }
+           
         }
         return cnt;
     }
