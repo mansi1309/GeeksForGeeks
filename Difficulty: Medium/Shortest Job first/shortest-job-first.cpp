@@ -15,14 +15,13 @@ class Solution {
     long long solve(vector<int>& bt) {
         // code here
         sort(bt.begin(),bt.end());
-        long long n=bt.size();
-        long long wt=0;
-        long long t=0;
-        for(int i=0;i<n;i++){
+        int t=0;
+        int wt=0;
+        for(int i=0;i<bt.size();i++){
             wt=wt+t;
             t=t+bt[i];
         }
-        return wt/n;
+        return wt/bt.size();
     }
 };
 
