@@ -30,7 +30,7 @@ class Solution {
 
         // Code here
         int cnt=0;
-        Node* curr=head;
+        Node*curr=head;
         while(curr!=NULL){
             cnt++;
             curr=curr->next;
