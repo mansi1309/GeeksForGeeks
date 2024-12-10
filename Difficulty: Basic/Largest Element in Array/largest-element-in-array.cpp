@@ -14,7 +14,6 @@ class Solution {
   public:
     int largest(vector<int> &arr) {
         // code here
-        // O(nlogn)
         sort(arr.begin(),arr.end());
         return arr[arr.size()-1];
     }
@@ -42,6 +41,7 @@ int main() {
 
         Solution ob;
         cout << ob.largest(arr) << endl;
+        cout << "~" << endl;
     }
     return 0;
 }
