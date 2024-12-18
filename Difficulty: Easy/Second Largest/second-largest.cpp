@@ -12,19 +12,20 @@ class Solution {
     // largest elements
     int getSecondLargest(vector<int> &arr) {
         // Code Here
+        int n=arr.size();
         int maxi=-1;
         int res=maxi;
-        for(int i=0;i<arr.size();i++){
+        for(int i=0;i<n;i++){
             if(arr[i]>maxi){
-                 res=maxi;
+                res=maxi;
                 maxi=arr[i];
-               
             }
-            if(arr[i]>res && arr[i]!=maxi){
+            if(arr[i]>res && maxi!=arr[i]){
                 res=arr[i];
             }
         }
         return res;
+            
     }
 };
 
