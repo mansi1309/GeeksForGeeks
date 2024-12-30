@@ -11,12 +11,9 @@ class Solution {
     // Function to find pair with maximum sum
     int pairWithMaxSum(vector<int> &arr) {
         // Your code goes here
-        
-        // return maximum sum of two consecutitve numbers
         int maxi=0;
-        for(int i=1;i<arr.size();i++){
-            int val=arr[i]+arr[i-1];
-            maxi=max(maxi,val);
+        for(int i=0;i<arr.size()-1;i++){
+            maxi=max(maxi,arr[i]+arr[i+1]);
         }
         return maxi;
     }
@@ -41,6 +38,7 @@ int main() {
         }
         Solution ob;
         cout << ob.pairWithMaxSum(nums) << endl;
+        cout << "~" << endl;
     }
     return 0;
 }
