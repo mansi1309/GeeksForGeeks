@@ -13,11 +13,9 @@ class Solution {
         // Code here
         vector<int>v;
         v.push_back(arr[arr.size()-1]);
-        int temp=arr[arr.size()-1];
         for(int i=arr.size()-2;i>=0;i--){
-            if(temp<=arr[i]){
-                temp=arr[i];
-                v.push_back(temp);
+            if(v.back()<=arr[i]){
+                v.push_back(arr[i]);
             }
         }
         reverse(v.begin(),v.end());
